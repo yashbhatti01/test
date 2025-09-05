@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trizon - IT Consulting Services</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Glide.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/css/glide.core.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7c3aed;
+            --accent: #ec4899;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+            --gradient-reverse: linear-gradient(135deg, var(--accent), var(--secondary), var(--primary));
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #334155;
+            overflow-x: hidden;
+            background-color: #f8fafc;
+        }
+        
+        h1, h2, h3, h4, h5, .display-1, .display-2, .display-3, .display-4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        .navbar {
+            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: all 0.4s ease;
+        }
+        
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 2rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+        
+        .navbar-brand::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 30px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+        
+        .navbar-brand:hover::after {
+            width: 100%;
+        }
+        
+        .nav-item {
+            margin: 0 3px;
+        }
+        
+        .nav-link {
+            font-weight: 600;
+            position: relative;
+            padding: 0.5rem 1rem !important;
+            border-radius: 8px;
+            transition: all 0.3s;
+            color: var(--dark) !important;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0;
+            border-radius: 8px;
+            transition: all 0.3s;
+            z-index: -1;
+        }
+        
+        .nav-link:hover {
+            color: white !important;
+            transform: translateY(-2px);
+        }
+        
+        .nav-link:hover::before {
+            opacity: 1;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1700&q=80') center/cover no-repeat;
+            color: white;
+            padding: 180px 0 140px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 20;
+        }
+        
+        .particles-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            animation: float 15s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-20px) translateX(10px) rotate(5deg);
+            }
+            50% {
+                transform: translateY(10px) translateX(-15px) rotate(-5deg);
+            }
+            75% {
+                transform: translateY(-10px) translateX(-10px) rotate(3deg);
+            }
+        }
+        
+        .display-1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff 20%, #93c5fd 60%, #ddd6fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .display-1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 4px;
+        }
+        
+        .hero-cta {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+        }
+        
+        .hero-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            z-index: -1;
+        }
+        
+        .hero-cta::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: all 0.6s ease;
+            z-index: 1;
+        }
+        
+        .hero-cta:hover::after {
+            left: 100%;
+        }
+        
+        .section-padding {
+            padding: 120px 0;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 80px;
+            font-weight: 700;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -25px;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 5px;
+            background: var(--gradient);
+            border-radius: 5px;
+        }
+        
+        .service-card {
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 100%;
+            border: none;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            background: white;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: var(--gradient);
+            opacity: 0.05;
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px) rotate(2deg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .service-card:hover::before {
+            height: 100%;
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 25px;
+            display: inline-block;
+            transition: all 0.4s;
+            position: relative;
+        }
+        
+        .service-icon::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 3px;
+            transition: all 0.4s;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+        
+        .service-card:hover .service-icon::after {
+            width: 60px;
+        }
+        
+        .cta-section {
+            background: var(--gradient);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.2;
+        }
+        
+        .btn-primary {
+            background: var(--gradient);
+            border: none;
+            padding: 15px 35px;
+            font-weight: 600;
+            border-radius: 12px;
+            transition: all 0.4s;
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-reverse);
+            opacity: 0;
+            transition: all 0.4s;
+            z-index: -1;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(37, 99, 235, 0.4);
+        }
+        
+        .btn-primary:hover::before {
+            opacity: 1;
+        }
+        
+        .btn-outline-primary {
+            border: 2px solid;
+            border-image: var(--gradient) 1;
+            color: var(--primary);
+            font-weight: 600;
+            border-radius: 12px;
+            transition: all 0.4s;
+            background: transparent;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn-outline-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: var(--gradient);
+            transition: all 0.4s;
+            z-index: -1;
+        }
+        
+        .btn-outline-primary:hover {
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
+        }
+        
+        .btn-outline-primary:hover::before {
+            height: 100%;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 100px 0 40px;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: all 0.3s;
+            position: relative;
+            padding-left: 0;
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 10px;
+        }
+        
+        .footer-links a::before {
+            content: '→';
+            position: absolute;
+            left: -15px;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+        
+        .footer-links a:hover::before {
+            opacity: 1;
+            left: 0;
+        }
+        
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--gradient);
+            opacity: 0.1;
+            filter: blur(50px);
+            z-index: 0;
+            animation: pulse 8s infinite ease-in-out;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.1;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.15;
+            }
+        }
+        
+        .shape-1 {
+            width: 400px;
+            height: 400px;
+            top: -200px;
+            right: -200px;
+        }
+        
+        .shape-2 {
+            width: 300px;
+            height: 300px;
+            bottom: 100px;
+            left: -150px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 40px;
+            margin: 20px;
+            position: relative;
+            transition: all 0.4s;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 80px;
+            color: var(--primary);
+            opacity: 0.1;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .client-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid transparent;
+            background: var(--gradient) padding-box, var(--gradient) border-box;
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) padding-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+        
+        .counter-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+        
+        .counter-item {
+            text-align: center;
+            padding: 40px 30px;
+            border-radius: 20px;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .counter-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 0;
+            background: var(--gradient);
+            transition: all 0.6s;
+            z-index: -1;
+        }
+        
+        .counter-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+        
+        .counter-item:hover::before {
+            height: 100%;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            margin-right: 15px;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: var(--gradient);
+            transition: all 0.4s;
+            z-index: -1;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px) rotate(10deg);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        
+        .social-icon:hover::before {
+            height: 100%;
+        }
+        
+        .form-control {
+            padding: 18px 20px;
+            border-radius: 12px;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .form-control:focus {
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .discovery-form {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .discovery-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: var(--gradient);
+        }
+        
+        .floating-icon {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.1;
+            color: var(--primary);
+            z-index: 0;
+        }
+        
+        .floating-icon-1 {
+            top: 20%;
+            left: 5%;
+            animation: float-icon 15s infinite ease-in-out;
+        }
+        
+        .floating-icon-2 {
+            top: 60%;
+            right: 5%;
+            animation: float-icon 18s infinite ease-in-out reverse;
+        }
+        
+        @keyframes float-icon {
+            0%, 100% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-30px) translateX(15px) rotate(10deg);
+            }
+            50% {
+                transform: translateY(20px) translateX(-20px) rotate(-10deg);
+            }
+            75% {
+                transform: translateY(-15px) translateX(-15px) rotate(5deg);
+            }
+        }
+        
+        .parallax-element {
+            transform-style: preserve-3d;
+        }
+        
+        .service-image {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transition: all 0.5s;
+        }
+        
+        .service-image:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+        }
+        
+        .glide__slide {
+            padding: 20px;
+        }
+        
+        .client-logo {
+            height: 80px;
+            width: auto;
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: all 0.4s;
+        }
+        
+        .client-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        
+        .team-member {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .team-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s;
+        }
+        
+        .team-member:hover .team-image {
+            transform: scale(1.1);
+            border-color: transparent;
+            background: var(--gradient);
+        }
+        
+        @media (max-width: 992px) {
+            .display-1 {
+                font-size: 3.5rem;
+            }
+            
+            .section-padding {
+                padding: 80px 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .display-1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-section {
+                padding: 140px 0 100px;
+            }
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbarNav">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Trizon</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#digital-marketing">Digital Marketing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ai-automation">AI & Automation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#digital-transformation">Digital Transformation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sap-services">SAP Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#managed-services">Managed Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact Us</a>
+                    </li>
+                </ul>
+                <a href="#discovery-call" class="btn btn-primary ms-3 d-none d-lg-block">Schedule Call</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="particles-container" id="particles-container"></div>
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto hero-content">
+                    <h1 class="display-1 fw-bold mb-4 animate__animated animate__fadeInDown">Where Digital Transformation Meets Real Business Impact</h1>
+                    <p class="lead mb-5 fs-4 animate__animated animate__fadeIn animate__delay-1s">Empowering businesses through innovative technology solutions and strategic guidance</p>
+                    <div class="hero-cta animate__animated animate__fadeInUp animate__delay-1s">
+                        <a href="#discovery-call" class="btn btn-primary btn-lg px-5 py-3">Book 30-Minute Discovery Call</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto text-center">
+                    <h2 class="section-title mb-4" data-aos="fade-up">About Trizon</h2>
+                    <p class="lead mb-5 fs-5" data-aos="fade-up" data-aos-delay="100">Trizon is an IT consulting company dedicated to empowering businesses through innovative technology solutions and strategic guidance. With 25+ years of SAP and IT consulting expertise, we are your trusted partner for transformation.</p>
+                    <div class="row mt-5">
+                        <div class="col-md-3 col-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="counter-item">
+                                <div class="counter-number" data-count="25">0+</div>
+                                <p>Years Experience</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                            <div class="counter-item">
+                                <div class="counter-number" data-count="50">0+</div>
+                                <p>Global Clients</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                            <div class="counter-item">
+                                <div class="counter-number" data-count="100">0+</div>
+                                <p>Projects Completed</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6 mb-4" data-aos="fade-up" data-aos-delay="500">
+                            <div class="counter-item">
+                                <div class="counter-number" data-count="96">0%</div>
+                                <p>Client Satisfaction</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="section-title mb-3" data-aos="fade-up">Our Services</h2>
+                    <p class="lead fs-5" data-aos="fade-up" data-aos-delay="100">We provide comprehensive IT consulting services designed to maximize efficiency and deliver higher ROI</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card service-card p-5">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4 class="mb-3">Digital Marketing</h4>
+                        <p class="mb-4">Comprehensive digital marketing strategies to enhance your online presence and drive growth.</p>
+                        <a href="#digital-marketing" class="btn btn-outline-primary">Learn More</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card service-card p-5">
+                        <div class="service-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4 class="mb-3">AI & Automation</h4>
+                        <p class="mb-4">Leverage AI, Generative AI, and Agentic AI to drive automation and predictive insights.</p>
+                        <a href="#ai-automation" class="btn btn-outline-primary">Learn More</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card service-card p-5">
+                        <div class="service-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h4 class="mb-3">Digital Transformation</h4>
+                        <p class="mb-4">End-to-end digital transformation roadmaps to keep your business competitive and future-ready.</p>
+                        <a href="#digital-transformation" class="btn btn-outline-primary">Learn More</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card service-card p-5">
+                        <div class="service-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h4 class="mb-3">SAP Services</h4>
+                        <p class="mb-4">SAP S/4HANA consulting, implementation, migration, and project management services.</p>
+                        <a href="#sap-services" class="btn btn-outline-primary">Learn More</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="card service-card p-5">
+                        <div class="service-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h4 class="mb-3">Managed Services</h4>
+                        <p class="mb-4">Application Managed Services (AMS) to ensure continuous optimization of your IT systems.</p>
+                        <a href="#managed-services" class="btn btn-outline-primary">Learn More</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="700">
+                    <div class="card service-card p-5">
+                        <div class="service-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h4 class="mb-3">Advisory Services</h4>
+                        <p class="mb-4">Expert advisory services including enterprise application rationalization and governance frameworks.</p>
+                        <a href="#sap-services" class="btn btn-outline-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Digital Marketing Section -->
+    <section id="digital-marketing" class="section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="section-title text-lg-start">Digital Marketing</h2>
+                    <p>Our digital marketing services are designed to enhance your brand's online presence, engage your target audience, and drive measurable business growth. We combine data-driven strategies with creative execution to deliver comprehensive digital marketing solutions.</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item border-0 ps-0"><i class="fas fa-check-circle text-primary me-2"></i> Search Engine Optimization (SEO)</li>
+                        <li class="list-group-item border-0 ps-0"><i class="fas fa-check-circle text-primary me-2"></i> Content Marketing Strategy</li>
+                        <li class="list-group-item border-0 ps-0"><i class="fas fa-check-circle text-primary me-2"></i> Social Media Marketing</li>
+                        <li class="list-group-item border-0 ps-0"><i class="fas fa-check-circle text-primary me-2"></i> Pay-Per-Click (PPC) Advertising</li>
+                        <li class="list-group-item border-0 ps-0"><i class="fas fa-check-circle text-primary me-2"></i> Email Marketing Campaigns</li>
+                        <li class="list-group-item border-0 ps-0"><i class="fas fa-check-circle text-primary me-2"></i> Analytics and Performance Tracking</li>
+                    </ul>
+                    <a href="#discovery-call" class="btn btn-primary mt-3">Discuss Your Marketing Needs</a>
+                </div>
+                <div class="col-lg-6 mt-5 mt-lg-0">
+                    <div class="service-image" data-aos="fade-left">
+                        <img src="https://images.unsplash.com/photo-1432888622747-4eb9a8f5a07a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Digital Marketing" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI & Automation Section -->
+    <section id="ai-automation" class="section-padding bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-2">
+                    <h2 class="section-title text-lg-start">AI & Automation</h2>
+                    <p>Harness the power of Artificial Intelligence, Generative AI, and Agentic AI to transform your business operations. Our AI and automation services deliver smarter workflows, predictive insights, and innovation at scale.</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item border-0 ps-0"><i class="fas fa-check-circle text-primary me-2"></i> AI Readiness Assessment</li>
+                        <li class="list-group-item border-0 ps-0"><i class="fas fa-check-circle text-primary me-2"></i> Generative AI Implementation</li>
+                        <li class="list-group-item border-0 ps-0"><i class="fas fa-check-circle text-primary me-2"></i> Intelligent Process Automation</li>
+                        <li class="list-group-item border-0 ps-0"><i class="fas fa-check-circle text-primary me-2"></i> Predictive Analytics Solutions</li>
+                        <li class="list-group-item border-0 ps-0"><i class="fas fa-check-circle text-primary me-2"></i> Machine Learning Models</li>
+                        <li class="list-group-item border-0 ps-0"><i class="fas fa-check-circle text-primary me-2"></i> AI Strategy and Consulting</li>
+                    </ul>
+                    <a href="#discovery-call" class="btn btn-primary mt-3">Explore AI Opportunities</a>
+                </div>
+                <div class="col-lg-6 order-lg-1 mt-5 mt-lg-0">
+                    <div class="service-image" data-aos="fade-right">
+                        <img src="https://images.unsplash.com/photo-1677442135135-416f8aa26a5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="AI & Automation" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Logos Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="section-title mb-3" data-aos="fade-up">Trusted by Global Companies</h2>
+                    <p class="lead fs-5" data-aos="fade-up" data-aos-delay="100">We partner with industry leaders to deliver exceptional results</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="glide" data-aos="fade-up" data-aos-delay="200">
+                        <div class="glide__track" data-glide-el="track">
+                            <ul class="glide__slides">
+                                <li class="glide__slide text-center">
+                                    <img src="https://logo.clearbit.com/ibm.com" alt="IBM" class="client-logo">
+                                </li>
+                                <li class="glide__slide text-center">
+                                    <img src="https://logo.clearbit.com/accenture.com" alt="Accenture" class="client-logo">
+                                </li>
+                                <li class="glide__slide text-center">
+                                    <img src="https://logo.clearbit.com/sap.com" alt="SAP" class="client-logo">
+                                </li>
+                                <li class="glide__slide text-center">
+                                    <img src="https://logo.clearbit.com/microsoft.com" alt="Microsoft" class="client-logo">
+                                </li>
+                                <li class="glide__slide text-center">
+                                    <img src="https://logo.clearbit.com/google.com" alt="Google" class="client-logo">
+                                </li>
+                                <li class="glide__slide text-center">
+                                    <img src="https://logo.clearbit.com/amazon.com" alt="Amazon" class="client-logo">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="section-title mb-3" data-aos="fade-up">Our Leadership Team</h2>
+                    <p class="lead fs-5" data-aos="fade-up" data-aos-delay="100">Experienced professionals with expertise from top consulting firms</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Team Member" class="team-image">
+                        <h4>Michael Johnson</h4>
+                        <p class="text-primary">CEO & Founder</p>
+                        <p>Former IBM Executive with 20+ years of experience in IT consulting and digital transformation.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Team Member" class="team-image">
+                        <h4>Sarah Williams</h4>
+                        <p class="text-primary">CTO</p>
+                        <p>Ex-Accenture Technology Lead specializing in AI, automation, and cloud solutions.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Team Member" class="team-image">
+                        <h4>David Chen</h4>
+                        <p class="text-primary">SAP Practice Lead</p>
+                        <p>Former SAP consultant with 15+ years of experience in ERP implementations and migrations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="section-title mb-3" data-aos="fade-up">What Our Clients Say</h2>
+                    <p class="lead fs-5" data-aos="fade-up" data-aos-delay="100">Hear from businesses that have transformed with Trizon</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-card">
+                        <p class="mb-4">"Trizon's SAP implementation transformed our operations. Their expertise and guidance helped us achieve a 30% increase in efficiency."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="client-image me-3">
+                            <div>
+                                <h5 class="mb-0">Michael Johnson</h5>
+                                <small class="text-muted">CTO, TechCorp International</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
+                    <div class="testimonial-card">
+                        <p class="mb-4">"The AI solutions implemented by Trizon have revolutionized our customer service. We've seen a 40% reduction in response time."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" class="client-image me-3">
+                            <div>
+                                <h5 class="mb-0">Sarah Williams</h5>
+                                <small class="text-muted">CEO, Innovate Solutions</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="testimonial-card">
+                        <p class="mb-4">"Their digital marketing strategy doubled our online leads in just 3 months. Trizon truly understands how to drive business growth."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://randomuser.me/api/portraits/men/62.jpg" alt="Client" class="client-image me-3">
+                            <div>
+                                <h5 class="mb-0">David Chen</h5>
+                                <small class="text-muted">Marketing Director, Global Retail</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section section-padding text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="mb-4" data-aos="fade-up">Ready to Transform Your Business?</h2>
+                    <p class="lead mb-5 fs-5" data-aos="fade-up" data-aos-delay="100">Partner with Trizon and let's transform your business together. Don't just adapt to change — lead it.</p>
+                    <a href="#discovery-call" class="btn btn-light btn-lg px-5 py-3" data-aos="fade-up" data-aos-delay="200">Start Your Success Story</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discovery Call Section -->
+    <section id="discovery-call" class="section-padding bg-light">
+        <div class="floating-icon floating-icon-1">
+            <i class="fas fa-comment"></i>
+        </div>
+        <div class="floating-icon floating-icon-2">
+            <i class="fas fa-calendar"></i>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="discovery-form">
+                        <div class="card-body p-5">
+                            <div class="text-center mb-5">
+                                <h2 class="mb-3" data-aos="fade-up">Schedule a Discovery Call</h2>
+                                <p class="lead fs-5" data-aos="fade-up" data-aos-delay="100">Book your 30-minute free consultation with our experts</p>
+                            </div>
+                            <form data-aos="fade-up" data-aos-delay="200">
+                                <div class="row g-4">
+                                    <div class="col-md-6">
+                                        <label for="firstName" class="form-label">First Name</label>
+                                        <input type="text" class="form-control" id="firstName" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="lastName" class="form-label">Last Name</label>
+                                        <input type="text" class="form-control" id="lastName" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="phone" class="form-label">Phone</label>
+                                        <input type="tel" class="form-control" id="phone">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="company" class="form-label">Company</label>
+                                        <input type="text" class="form-control" id="company">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="service" class="form-label">Service of Interest</label>
+                                        <select class="form-select" id="service">
+                                            <option selected>Select a service...</option>
+                                            <option value="digital-marketing">Digital Marketing</option>
+                                            <option value="ai-automation">AI & Automation</option>
+                                            <option value="digital-transformation">Digital Transformation</option>
+                                            <option value="sap-services">SAP Services</option>
+                                            <option value="managed-services">Managed Services</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="message" class="form-label">Message</label>
+                                        <textarea class="form-control" id="message" rows="4"></textarea>
+                                    </div>
+                                    <div class="col-12 text-center mt-4">
+                                        <button type="submit" class="btn btn-primary btn-lg px-5 py-3">Schedule My Call</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="text-white mb-4">Trizon</h4>
+                    <p class="mb-4">Empowering businesses through innovative technology solutions and strategic guidance.</p>
+                    <div class="d-flex mt-4">
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="text-white mb-4">Services</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li class="mb-3"><a href="#digital-marketing">Digital Marketing</a></li>
+                        <li class="mb-3"><a href="#ai-automation">AI & Automation</a></li>
+                        <li class="mb-3"><a href="#digital-transformation">Digital Transformation</a></li>
+                        <li class="mb-3"><a href="#sap-services">SAP Services</a></li>
+                        <li class="mb-3"><a href="#managed-services">Managed Services</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="text-white mb-4">Company</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li class="mb-3"><a href="#home">About Us</a></li>
+                        <li class="mb-3"><a href="#contact">Contact</a></li>
+                        <li class="mb-3"><a href="#">Careers</a></li>
+                        <li class="mb-3"><a href="#">Privacy Policy</a></li>
+                        <li class="mb-3"><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="text-white mb-4">Newsletter</h5>
+                    <p class="mb-4">Subscribe to our newsletter for the latest updates</p>
+                    <form>
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your email" aria-label="Your email">
+                            <button class="btn btn-primary" type="button">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="mt-5 mb-4">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2023 Trizon. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Designed with <i class="fas fa-heart text-danger"></i> by Trizon Team</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Glide.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/glide.min.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            easing: 'ease-out-back'
+        });
+        
+        // Initialize Glide.js
+        new Glide('.glide', {
+            type: 'carousel',
+            perView: 5,
+            autoplay: 3000,
+            breakpoints: {
+                1200: {
+                    perView: 4
+                },
+                992: {
+                    perView: 3
+                },
+                768: {
+                    perView: 2
+                },
+                576: {
+                    perView: 1
+                }
+            }
+        }).mount();
+        
+        // Add navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.padding = '10px 0';
+                navbar.style.boxShadow = '0 4px 30px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.padding = '15px 0';
+                navbar.style.boxShadow = '0 4px 30px rgba(0,0,0,0.1)';
+            }
+        });
+        
+        // Create floating particles
+        function createParticles() {
+            const container = document.getElementById('particles-container');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random size between 5 and 15px
+                const size = Math.random() * 10 + 5;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random position
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                
+                // Random animation delay
+                const delay = Math.random() * 15;
+                particle.style.animationDelay = `${delay}s`;
+                
+                container.appendChild(particle);
+            }
+        }
+        
+        // Counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter-number');
+            const speed = 200;
+            
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-count');
+                const count = +counter.innerText;
+                const increment = Math.ceil(target / speed);
+                
+                if (count < target) {
+                    counter.innerText = Math.min(count + increment, target);
+                    setTimeout(() => animateCounters(), 1);
+                }
+            });
+        }
+        
+        // Initialize when page loads
+        window.addEventListener('load', function() {
+            createParticles();
+            
+            // Animate counters when they come into view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            const counterSection = document.querySelector('.counter-item');
+            if (counterSection) {
+                observer.observe(counterSection);
+            }
+        });
+        
+        // Parallax effect
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.parallax-element');
+            
+            parallaxElements.forEach(element => {
+                const speed = parseFloat(element.getAttribute('data-parallax-speed')) || 0.5;
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
